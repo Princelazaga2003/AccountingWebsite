@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #40E0D0;
+        }
+
+        header {
+            background-color: #40E0D0;
+            color: #000000;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Add a class for hiding initially */
+        .hidden {
+            display: none;
+        }
+
+        /* Style for the toggle button */
+        .toggle-btn {
+            color: #333;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Style for the transaction table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #080000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Style for the image */
+        .main-image {
+            max-width: 15%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img class="main-image" src="University-of-Cebu-Logo.jpg" alt="University-of- Cebu-Logo">
+        <h1>Welcome to our Accounting Website</h1>
+    </header>
+
+    <section>
+        <h2>
+            <span class="toggle-btn" onclick="toggleGeneralLedger()"><b>GENERAL LEDGER ACCOUNTS</b></span>
+        </h2>
+        <ul class="hidden" id="generalLedgerList">
+            <li>110 - Cash</li>
+            <li>120 - Accounts Receivable</li>
+            <li>130 - Fees Receivable</li>
+            <li>140 - Supplies</li>
+            <li>150 - Office Equipment</li>
+            <li>155 - Accumulated Depreciation</li>
+            <li>210 - Accounts Payable</li>
+            <li>220 - Salaries Payable</li>
+            <li>310 - Detoya, Capital</li>
+            <li>320 - Detoya, Withdrawals</li>
+            <li>330 - Income Summary</li>
+            <li>410 - Consulting Revenues</li>
+            <li>510 - Salaries Expense</li>
+            <li>520 - Supplies Expense</li>
+            <li>530 - Rent Expense</li>
+            <li>540 - Depreciation Expense</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>
+            <span class="toggle-btn" onclick="toggleJournalTransactions()"><b>JOURNALIZE TRANSACTION</b></span>
+        </h2>
+        <table class="hidden" id="journalTransactionsTable">
+            <tr>
+                <th>Date</th>
+                <th>Account</th>
+                <th>Debit</th>
+                <th>Credit</th>
+            </tr>
+            <!-- Include your journalized transactions here -->
+            <tr>
+                <td>Dec. 1</td>
+                <td>310 - Cash</td>
+                <td>150,000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Detoya, Capital</td>
+                <td></td>
+                <td>150,000</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>530 - Rent Expense</td>
+                <td>8,000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Cash</td>
+                <td></td>
+                <td>8,000</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>140 - Supplies Expense</td>
+                <td>7,200</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>210 - Accounts Payable</td>
+                <td></td>
+                <td>7,200</td>
+            </tr>
+                
+            <!-- Transaction on Dec. 20 -->
+        <tr>
+            <td>20</td>
+            <td>150 - Office Equipment</td>
+            <td></td>
+            <td>75,000</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> Cash</td>
+            <td>37,000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> Accounts Payable</td>
+            <td></td>
+            <td>38,000</td>
+        </tr>
+
+        <!-- Transaction on Dec. 28 -->
+        <tr>
+            <td>28</td>
+            <td> Supplies Expense</td>
+            <td>7,200</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> Cash</td>
+            <td></td>
+            <td>7,200</td>
+        </tr>
+
+        <!-- Transaction on Dec. 30 -->
+        <tr>
+            <td>30</td>
+            <td>510 - Salaries Expense</td>
+            <td>6,000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Cash</td>
+            <td></td>
+            <td>6,000</td>
+        </tr>
+
+        <!-- Transaction on Dec. 31 -->
+        <tr>
+            <td>31</td>
+            <td>Cash</td>
+            <td>20,000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Consulting Revenues</td>
+            <td></td>
+            <td>20,000</td>
+        </tr>
+
+        <tr>
+            <td>31</td>
+            <td>510 - Salaries Expense</td>
+            <td>6,000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Cash</td>
+            <td></td>
+            <td>6,000</td>
+        </tr>
+
+        <tr>
+            <td>31</td>
+            <td>410 - Consulting Revenues</td>
+            <td>48,000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Fees Receivable</td>
+            <td></td>
+            <td>48,000</td>
+        </tr>
+
+        <tr>
+            <td>31</td>
+            <td>320 - Detoya, Withdrawals</td>
+            <td>12,000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Cash</td>
+            <td></td>
+            <td>12,000</td>
+        </tr>
+
+        
+        </table>
+    </section>
+    <section>
+        <h2>
+        <span class="toggle-btn" onclick="toggleWorksheet()"><b>WORKSHEET</b></span>
+    </h2>
+    
+    <table class="hidden" id="worksheetContent">
+        <tr>
+            <th>Adjustments:</th>
+            <th>Debit</th>
+            <th>Credit</th>
+        </tr>
+        <tr>
+            <td>a. Supplies on hand at Dec. 31</td>
+            <td>4, 700</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>140 Supplies Defense</td>
+            <td></td>
+            <td>2,500</td>
+        </tr>
+        <tr>
+            <td>140 Supplies</td>
+            <td></td>
+            <td>2,500</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>b. Accrued Salaries</td>
+            <td>1,800</td>
+            <td></td>
+        </tr>  
+        <tr>
+            <td>510 Salaries Expense</td>
+            <td></td>
+            <td>1,800</td>
+        </tr>
+        <tr>
+            <td>220 Salaries Payable</td>
+            <td></td>
+            <td>1,800</td>
+        </tr> 
+        <tr>
+            <td>c. Depreciation Expense</td>
+            <td>800</td>
+            <td></td>
+        </tr> 
+        <tr>
+            <td>540 Depreciation Expense</td>
+            <td></td>
+            <td>800</td>
+        </tr>
+        <tr>
+            <td>155 Accumulated Depreciation</td>
+            <td></td>
+            <td>800</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>d. Fees Receivable (20 hours * P500)</td>
+            <td>10,000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>130 Fees Receivable</td>
+            <td></td>
+            <td>10,000</td>
+        </tr>
+        <tr>
+            <td>410 Consulting Revenues</td>
+            <td></td>
+            <td>10,000</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h2>
+        <span class="toggle-btn" onclick="toggleFinancialStatements()"><b>FINANCIAL STATEMENTS</b></span>
+    </h2>
+    <table class="hidden" id="FinanceState">
+        <tr>
+            <th></th>
+            <th><center>Debit</center></th>
+            <th><center>Credit</center></th>
+        </tr>
+        <tr>
+            <td>Consulting Revenues</td>
+            <td></td>
+            <td>68,000</td>
+        </tr>
+        <tr>
+            <td>- Salaries Expense</td>
+            <td>12,800</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>- Supplies Expense</td>
+            <td></td>
+            <td>9,700</td>
+        </tr>
+        <tr>
+            <td>- Rent Expense</td>
+            <td>8,000</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>- Depreciation Expense</td>
+            <td></td>
+            <td>800</td>
+        </tr>
+        <tr>
+            <th>Net Income</th>
+            <th></th>
+            <th><center>36,700</center></th>
+        </tr>  
+    </table>    
+</section>
+<section>
+    <h2>
+        <span class="toggle-btn" onclick="toggleStatementsOfChangesInEquity()"><b>STATEMENTS OF CHANGES IN EQUITY</b></span>
+    </h2>
+    <table class="hidden" id="StatementsOfChangesInEquityContent">
+        <tr>
+            <th></th>
+            <th><center>Debit</center></th>
+            <th><center>Credit</center></th>
+        </tr>
+            <td>Detoya, Capital - Beginning</td>
+            <td></td>
+            <td>150,000</td>
+        </tr>
+        <tr>
+
+        <tr>   
+            <td>+ Net Income</td>
+            <td>36,700</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>- Detoya, Withdrawals</td>
+            <td></td>
+            <td>(12,000)</td>
+        </tr>
+        <tr>
+
+            </tr>
+        <tr>
+            <td>+ Addtional Investments</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+
+            </tr>
+        <tr>
+            <td>Detoya Capital - Ending</td>
+            <td></td>
+            <td>174,700</td>
+        </tr>
+        <tr>
+            <!-- Add your content here -->
+        
+    </table>
+</section>
+
+<section>
+    <h2>
+        <span class="toggle-btn" onclick="toggleBalanceSheet()"><b>BALANCE SHEET</b></span>
+    </h2>
+    <table class="hidden" id="BalanceSheetContent">
+        <tr>
+            <th>ASSETS</th>
+            <th><center>Debit</center></th>
+            <th><center>Credit</center></th>
+        <tr>
+
+            <td>-CASH </td>
+            <td>XXXX</td>
+            <td></td>
+        </tr>
+        <tr>
+           
+           <tr>
+
+            <td>-Accounts Receivable </td>
+            <td></td>
+            <td>XXXX</td>
+        </tr>
+        <tr>
+
+             <tr>
+
+            <td>-Supplies </td>
+            <td>XXXX</td>
+            <td></td>
+        </tr>
+        <tr>
+
+             <tr>
+
+            <td>-Office Equipment </td>
+            <td></td>
+            <td>XXXX</td>
+        </tr>
+        <tr>
+
+             <tr>
+
+            <td>-Accumulated Depreciation</td>
+            <td></td>
+            <td>(800)</td>
+        </tr>
+        <tr>
+
+            <tr>
+                <th>TOTAL ASSETS</th>
+            <th></th>
+            <th><center>XXXX</center></th>
+
+
+         <tr>
+        </tr>
+
+
+
+        <tr>
+                <th>Liabilities:</th>
+            <td></td>
+            <td><center></center></t>
+
+         <tr>
+        </tr>
+
+         <tr>
+
+            <td>-Accounts Payable </td>
+            <td></td>
+            <td>XXXX</td>
+        </tr>
+        <tr>
+
+            <tr>
+
+            <td>-Salaries Payable </td>
+            <td>XXXX</td>
+            <td></td>
+        </tr>
+        <tr>
+           
+
+               <tr>
+                <th>TOTAL Liabilities:</th>
+            <th>XXXX</th>
+            <th></th>
+
+             <tr>
+                <th>Equity:</th>
+            <th></th>
+            <th><center></center></th>
+
+         <tr>
+        </tr>
+
+           <tr>
+
+            <td>-Detoya, Capital </td>
+            <td></td>
+            <td>174,700</td>
+        </tr>
+        <tr>
+
+              <tr>
+
+            <td>Total Equity </td>
+            <td>174,700</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Total Liabilities and Equity: </th>
+            <td></td>
+            <td>XXXX</td>
+        </tr>
+         </table>
+         </section>
+         <section>
+    <h2>
+        <span class="toggle-btn" onclick="toggleCashFlows()"><b>STATEMENT CASH FLOWS</b></span>
+    </h2>
+    <table class="hidden" id="CashFlowsTotal">
+        <tr>
+            <th>Cash Flows from Operating Activities:</th>
+            <th>Debit</th>
+            <th>Credit</th>
+        </tr>
+        <tr>
+            <td>-Cash from Customers</td>
+            <td></td>
+            <td>68,000</td>
+        </tr>
+        <tr>
+            <td>-Cash Paid for Expenses</td>
+            <td></td>
+            <td>(26,500)</td>
+        </tr>
+        <tr>
+            <td>-Cash Paid for Salaries</td>
+            <td>(12,800)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>-Net Cash from Operating Activities</td>
+            <td>28,700</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Cash Flows from Investing Activities:</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>-Cash Paid for Equipment</td>
+            <td>(37,000)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Net Cash from Investing Activities</td>
+            <td></td>
+            <td>(37,000)</td>
+        </tr>
+        <tr>
+            <th>Cash Flows from Financing Activities:</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>-Detroya, Withdrawals</td>
+            <td>(12,000)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>+ Additional Investments</td>
+            <td>XXXX</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Net Cash from Financing Activities</td>
+            <td></td>
+            <td>(12,000)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Net Increase(Decrease) in Cash</td>
+            <td></td>
+            <td>(20,300)</td>
+        </tr>
+        <tr>
+            <td>Cash - Beginning</td>
+            <td>XXXX</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Cash - Ending</td>
+            <td>XXXX</td>
+            <td></td>
+        </tr>
+    </table>
+    </section>
+    <section>
+    <h2>
+        <span class="toggle-btn" onclick="toggleClosingEntries()"><b>CLOSING ENTRIES</b></span>
+    </h2>
+    <table class="hidden" id="ClosingEntries">
+        <tr>
+            <th></th>
+            <th>Dec. 31</th>
+            <th>Debit</th>
+            <th>Credit</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>330 Income Summary</td>
+            <td>36,700</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Consulting Revenues</td>
+            <td></td>
+            <td>68,000</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Salaries Expense</td>
+            <td></td>
+            <td>12,800</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Supplies Expense</td>
+            <td></td>
+            <td>9,700</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Rent Expense</td>
+            <td></td>
+            <td>8,000</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Depreciation Expense</td>
+            <td></td>
+            <td>800</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td>330 Income Summary</td>
+            <td>36,700</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td>Detoya, Capital</td>
+            <td></td>
+            <td>36,700</td>
+        </tr>
+    </table>   
+    </section>  
+
+    
+    <footer>
+ 
+    <script>
+           function toggleGeneralLedger() {
+        var generalLedgerList = document.getElementById('generalLedgerList');
+        generalLedgerList.classList.toggle('hidden');
+    }
+
+    function toggleJournalTransactions() {
+        var journalTransactionsTable = document.getElementById('journalTransactionsTable');
+        journalTransactionsTable.classList.toggle('hidden');
+    }
+
+    // Function to toggle the Worksheet section
+    function toggleWorksheet() {
+        var worksheetContent = document.getElementById('worksheetContent');
+        worksheetContent.classList.toggle('hidden');
+    }
+
+    function toggleFinancialStatements() {
+        var FinanceState = document.getElementById('FinanceState');
+        FinanceState.classList.toggle('hidden');
+    }
+function toggleStatementsOfChangesInEquity() {
+    var statementsOfChangesInEquityContent = document.getElementById('StatementsOfChangesInEquityContent');
+    statementsOfChangesInEquityContent.classList.toggle('hidden');
+    }
+
+    function toggleBalanceSheet() {
+    var balanceSheetContent = document.getElementById('BalanceSheetContent');
+    balanceSheetContent.classList.toggle('hidden');
+    }
+    function toggleCashFlows() {
+    var cashflows = document.getElementById('CashFlowsTotal');
+    cashflows.classList.toggle('hidden');
+    }
+    function toggleClosingEntries() {
+    var closingEntries = document.getElementById('ClosingEntries');
+    closingEntries.classList.toggle('hidden');
+    }
+
+
+  
+</script>
+
+</body>
+
+</html>
